@@ -75,16 +75,16 @@ interface LUALIB_API_MACRO : LUALIB_API {
 
     // #define luaL_dofile(L, fn) \
     // (luaL_loadfile(L, fn) || lua_pcall(L, 0, LUA_MULTRET, 0))
-    fun luaL_dofile(@u_int64_t luaState: LuaState, filename: String) {
+    fun luaL_dofile(@u_int64_t luaState: LuaState, filename: String): Int {
         luaL_loadfile(luaState, filename)
-        lua_pcall(luaState, 0, LUA.LUA_MULTIRET, 0)
+        return lua_pcall(luaState, 0, LUA.LUA_MULTIRET, 0)
     }
 
     // #define luaL_dostring(L, s) \
     // (luaL_loadstring(L, s) || lua_pcall(L, 0, LUA_MULTRET, 0))
-    fun luaL_dostring(@u_int64_t luaState: LuaState, s: String) {
+    fun luaL_dostring(@u_int64_t luaState: LuaState, s: String): Int {
         luaL_loadstring(luaState, s)
-        lua_pcall(luaState, 0, LUA.LUA_MULTIRET, 0)
+        return lua_pcall(luaState, 0, LUA.LUA_MULTIRET, 0)
     }
 
     // #define luaL_getmetatable(L,n)	(lua_getfield(L, LUA_REGISTRYINDEX, (n)))
