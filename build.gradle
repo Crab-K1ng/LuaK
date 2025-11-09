@@ -1,0 +1,27 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '2.2.20'
+    id("com.github.johnrengelman.shadow") version "8.1.1"
+}
+
+group = 'me.zombii'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'com.github.jnr:jnr-ffi:2.2.17'
+}
+
+shadowJar {
+    manifest {
+        attributes(
+                "Main-Class": "me.zombii.luak.LuaK"
+        )
+    }
+}
+
+kotlin {
+    jvmToolchain(8)
+}
