@@ -327,7 +327,7 @@ interface LUA {
 
     // LUA_API int   (lua_pcallk) (lua_State *L, int nargs, int nresults, int errfunc, lua_KContext ctx, lua_KFunction k);
     fun lua_pcallk(luaState: LuaState, nargs: Int, nresults: Int, errfunc: Int, ctx: Pointer, k: Lua_KFunction): Int
-    fun lua_pcallk(luaState: LuaState, nargs: Int, nresults: Int, errfunc: Int, @u_int64_t ctx: Long, @u_int64_t k: Long)
+    fun lua_pcallk(luaState: LuaState, nargs: Int, nresults: Int, errfunc: Int, @u_int64_t ctx: Long, @u_int64_t k: Long): Int
 
     // LUA_API int   (lua_load) (lua_State *L, lua_Reader reader, void *dt, const char *chunkname, const char *mode);
     fun lua_load(luaState: LuaState, reader: Lua_Reader, dt: Pointer, chunkname: String, mode: String): Int
